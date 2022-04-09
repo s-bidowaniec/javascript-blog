@@ -44,10 +44,15 @@
         const listOfTitles = document.querySelector(".list.titles")
         listOfTitles.innerHTML = ""
         /* For articles */
-        /* Get article ID */
-        /* Get article title */
-        /* Create link */
-        /* Add link to title list */
+        const articles = document.querySelectorAll('.post');
+        for (let article of articles){
+            /* Get article ID */
+            let articleId = article.getAttribute("id")
+            console.log("article ID: ", articleId)
+            /* Get article title */
+            /* Create link */
+            /* Add link to title list */
+        }
     }
     generateTitleLinks()
 }
