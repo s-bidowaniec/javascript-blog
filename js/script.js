@@ -30,11 +30,12 @@
         const hrefAttribute = clickedElement.getAttribute('href')
         console.log('clicked href:', hrefAttribute)
 
-        /* find the correct article using the selector (value of 'href' attribute) */
+        /* [DONE] find the correct article using the selector (value of 'href' attribute) */
         const currentArticle = document.querySelector(hrefAttribute)
         console.log('current article:', currentArticle)
 
-        /* add class 'active' to the correct article */
+        /* [DONE] add class 'active' to the correct article */
+        currentArticle.classList.add('active')
     }
 
     const links = document.querySelectorAll('.titles a');
