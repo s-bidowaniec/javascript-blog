@@ -1,11 +1,5 @@
 'use strict';
 {
-    /*
-    document.getElementById('test-button').addEventListener('click', function(){
-        const links = document.querySelectorAll('.titles a');
-        console.log('links:', links);
-    });*/
-
     const titleClickHandler = function(event) {
         event.preventDefault();
         const clickedElement = this;
@@ -43,4 +37,15 @@
     for (let link of links) {
         link.addEventListener('click', titleClickHandler);
     }
+
+    const generateTitleLinks = function (){
+        console.log("generate title links")
+        /* Remove content of title list */
+        /* For articles */
+        /* Get article ID */
+        /* Get article title */
+        /* Create link */
+        /* Add link to title list */
+    }
+    generateTitleLinks()
 }
