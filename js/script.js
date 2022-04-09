@@ -40,7 +40,9 @@
 
     const generateTitleLinks = function (){
         console.log("generate title links")
-        /* Remove content of title list */
+        /* [DONE] Remove content of titles list */
+        const listOfTitles = document.querySelector(".list.titles")
+        listOfTitles.innerHTML = ""
         /* For articles */
         /* Get article ID */
         /* Get article title */
