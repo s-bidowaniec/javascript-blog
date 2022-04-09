@@ -27,15 +27,15 @@
         }
 
         /* [DONE] get 'href' attribute from the clicked link */
-        const hrefAttribute = clickedElement.getAttribute('href')
-        console.log('clicked href:', hrefAttribute)
+        const articleSelector = clickedElement.getAttribute('href')
+        console.log('clicked href:', articleSelector)
 
         /* [DONE] find the correct article using the selector (value of 'href' attribute) */
-        const currentArticle = document.querySelector(hrefAttribute)
-        console.log('current article:', currentArticle)
+        const targetArticle = document.querySelector(articleSelector)
+        console.log('current article:', targetArticle)
 
         /* [DONE] add class 'active' to the correct article */
-        currentArticle.classList.add('active')
+        targetArticle.classList.add('active')
     }
 
     const links = document.querySelectorAll('.titles a');
