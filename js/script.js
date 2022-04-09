@@ -46,10 +46,12 @@
         /* For articles */
         const articles = document.querySelectorAll('.post');
         for (let article of articles){
-            /* Get article ID */
+            /* [DONE] Get article ID */
             let articleId = article.getAttribute("id")
             console.log("article ID: ", articleId)
-            /* Get article title */
+            /* [DONE] Get article title */
+            let articleTitle = document.querySelector('#'+articleId+ ' .post-title').innerHTML
+            console.log("article title: ", articleTitle)
             /* Create link */
             /* Add link to title list */
         }
