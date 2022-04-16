@@ -1,5 +1,13 @@
 'use strict';
 {
+  /* Constans  parameters */
+  const optArticleSelector = '.post',
+    optTitleSelector = '.post-title',
+    optTitleListSelector = '.titles',
+    optArticleTagsSelector = '.post-tags .list',
+    optArticleAuthorsSelector = '.post-author';
+
+  /* Titles */
   const titleClickHandler = function(event) {
     event.preventDefault();
     const clickedElement = this;
@@ -58,6 +66,8 @@
       link.addEventListener('click', titleClickHandler);
     }
   };
+
+  /* Tags */
   const generateTags = function(){
     //console.log('start generateTags function');
     /* [DONE] find all articles */
@@ -119,7 +129,6 @@
     /* execute function "generateTitleLinks" with article selector as argument */
     generateTitleLinks('[data-tags~="' + tag + '"]');
   };
-
   const addClickListenersToTags = function(){
     /* find all links to tags */
     const tagLinks = document.querySelectorAll('a[href^="#tag-"]');
@@ -130,12 +139,30 @@
       /* END LOOP: for each link */
     }
   };
-  const optArticleSelector = '.post',
-    optTitleSelector = '.post-title',
-    optTitleListSelector = '.titles',
-    optArticleTagsSelector = '.post-tags .list';
+
+  /* Authors */
+  const generateAuthors = function(){
+    /* find all articles */
+    const articles = document.querySelectorAll(optArticleSelector);
+    /* START LOOP: for every article: */
+    for (let article of articles) {
+      /* find author wrapper */
+      const authorWrapper = article.querySelector(optArticleAuthorsSelector);
+      /* get author from data-author attribute */
+      const articleAuthor = article.getAttribute('data-author');
+      /* generate HTML of the link */
+      const authorLink = `by <a href="#author-${articleAuthor.replace(' ', '-')}">${articleAuthor}</a>`;
+      /* insert HTML of all the links into the authors wrapper */
+      authorWrapper.innerHTML = authorLink;
+      /* END LOOP: for every article: */
+    }
+  };
+  const authorClickHandler = function(){};
+  const addClickListenersToAuthors = function(){};
+
   generateTitleLinks();
   generateTags();
   generateTags();
   addClickListenersToTags();
+  generateAuthors();
 }
