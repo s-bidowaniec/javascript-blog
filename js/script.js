@@ -59,8 +59,10 @@
     }
   };
   const generateTags = function(){
-    /* find all articles */
-
+    console.log('start generateTags function');
+    /* [DONE] find all articles */
+    const articles = document.querySelectorAll(optArticleSelector);
+    console.log('articles: ', articles);
     /* START LOOP: for every article: */
 
     /* find tags wrapper */
@@ -88,5 +90,6 @@
     optTitleListSelector = '.titles',
     optArticleTagsSelector = '.post-tags .list';
   generateTitleLinks();
+  generateTags();
   generateTags();
 }
