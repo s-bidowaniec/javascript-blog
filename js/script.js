@@ -31,9 +31,6 @@
     /* [DONE] add class 'active' to the correct article */
     targetArticle.classList.add('active');
   };
-  const optArticleSelector = '.post',
-    optTitleSelector = '.post-title',
-    optTitleListSelector = '.titles';
   const generateTitleLinks = function (){
     console.log('generate title links');
     /* [DONE] remove content of titles list */
@@ -61,5 +58,35 @@
       link.addEventListener('click', titleClickHandler);
     }
   };
+  const generateTags = function(){
+    /* find all articles */
+
+    /* START LOOP: for every article: */
+
+    /* find tags wrapper */
+
+    /* make html variable with empty string */
+
+    /* get tags from data-tags attribute */
+
+    /* split tags into array */
+
+    /* START LOOP: for each tag */
+
+    /* generate HTML of the link */
+
+    /* add generated code to html variable */
+
+    /* END LOOP: for each tag */
+
+    /* insert HTML of all the links into the tags wrapper */
+
+    /* END LOOP: for every article: */
+  };
+  const optArticleSelector = '.post',
+    optTitleSelector = '.post-title',
+    optTitleListSelector = '.titles',
+    optArticleTagsSelector = '.post-tags .list';
   generateTitleLinks();
+  generateTags();
 }
