@@ -200,8 +200,8 @@
     }
   };
 
+  /* Script */
   generateTitleLinks();
-  generateTags();
   generateTags();
   addClickListenersToTags();
   generateAuthors();
