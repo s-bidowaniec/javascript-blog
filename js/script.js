@@ -59,31 +59,35 @@
     }
   };
   const generateTags = function(){
-    console.log('start generateTags function');
+    //console.log('start generateTags function');
     /* [DONE] find all articles */
     const articles = document.querySelectorAll(optArticleSelector);
-    console.log('articles: ', articles);
+    //console.log('articles: ', articles);
     /* START LOOP: for every article: */
-
-    /* find tags wrapper */
-
-    /* make html variable with empty string */
-
-    /* get tags from data-tags attribute */
-
-    /* split tags into array */
-
-    /* START LOOP: for each tag */
-
-    /* generate HTML of the link */
-
-    /* add generated code to html variable */
-
-    /* END LOOP: for each tag */
-
-    /* insert HTML of all the links into the tags wrapper */
-
-    /* END LOOP: for every article: */
+    for (let article of articles) {
+      console.log('article: ', article);
+      /* [DONE] find tags wrapper */
+      const articleTagsWrapper = article.querySelector(optArticleTagsSelector);
+      console.log('article tag wrapper: ', articleTagsWrapper);
+      /* [DONE] make html variable with empty string */
+      let html = '';
+      /* [DONE] get tags from data-tags attribute, split tags into array */
+      const articleTags = article.getAttribute('data-tags').split(' ');
+      console.log('article tags: ', articleTags);
+      /* START LOOP: for each tag */
+      for (let tag of articleTags) {
+        /* [DONE] generate HTML of the link */
+        const htmlLink = `<li><a href="#tag-${tag}">${tag}</a></li>`;
+        console.log('html link: ', htmlLink);
+        /* [DONE] add generated code to html variable */
+        html += htmlLink;
+        /* END LOOP: for each tag */
+      }
+      /* [DONE] insert HTML of all the links into the tags wrapper */
+      articleTagsWrapper.innerHTML = html;
+      console.log('article tags wrapper innerHTML: ', articleTagsWrapper.innerHTML);
+      /* END LOOP: for every article: */
+    }
   };
   const optArticleSelector = '.post',
     optTitleSelector = '.post-title',
