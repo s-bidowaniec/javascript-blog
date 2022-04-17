@@ -72,10 +72,25 @@
   };
 
   /* Tags */
+  const calculateTagsParams = function(tags){
+    const params = {
+      'max': 0,
+      'min': 999999,
+    };
+    console.log(tags);
+    for (let tag in tags){
+      if (tags[tag]<params.min){
+        params.min = tags[tag];
+      } else if (tags[tag]>params.max){
+        params.max = tags[tag];
+      }
+    }
+    return params;
+  };
   const generateTags = function(){
     //console.log('start generateTags function');
-    /* [DONE] create a new variable allTags with an empty array */
-    let allTags = [];
+    /* [DONE] create a new variable allTags with an empty object */
+    let allTags = {};
     /* [DONE] find all articles */
     const articles = document.querySelectorAll(optArticleSelector);
     //console.log('articles: ', articles);
@@ -98,9 +113,11 @@
         /* [DONE] add generated code to html variable */
         html += htmlLink;
         /* [DONE] check if this link is NOT already in allTags */
-        if(allTags.indexOf(htmlLink) == -1) {
+        if(!allTags[tag]) {
           /* [DONE] add generated code to allTags array */
-          allTags.push(htmlLink);
+          allTags[tag] = 1;
+        } else {
+          allTags[tag]++;
         }
         /* END LOOP: for each tag */
       }
@@ -110,9 +127,23 @@
       /* END LOOP: for every article: */
       /* [DONE] find list of tags in right column */
       const tagList = document.querySelector(optTagsListSelector);
-      /* [DONE] add html from allTags to tagList */
-      tagList.innerHTML = allTags.join(' ');
+      console.log(allTags);
+      /* tag size */
+      const tagsParams = calculateTagsParams(allTags);
+      console.log('tagsParams:', tagsParams);
+
+      /* [DONE] create variable for all links HTML code */
+      let allTagsHTML = '';
+      /* START LOOP: for each tag in allTags: */
+      for (let tag in allTags){
+        /* [DONE] generate code of a link and add it to allTagsHTML */
+        allTagsHTML += `<li><a href="#tag-${tag}">${tag}</a>` +' ('+allTags[tag]+')</li>';
+        /* END LOOP: for each tag in allTags: */
+      }
+      /* [DONE] add HTML from allTagsHTML to tagList */
+      tagList.innerHTML = allTagsHTML;
     }
+
   };
   const tagClickHandler = function(event){
     /* [DONE] prevent default action for this event */
